@@ -533,9 +533,11 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
 .activity-year { font-size: 13px; color: var(--text-dimmer); }
 
 /* ===== Contact ===== */
-.contact-section { background: var(--cream); padding: 120px 32px 90px; color: var(--navy); }
+.contact-section { position: relative; padding: 120px 32px 90px; color: var(--text); }
 
 .contact-grid {
+  position: relative;
+  z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
@@ -543,24 +545,26 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
   gap: 64px;
 }
 
-.contact-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: var(--green); margin-bottom: 14px; }
-.contact-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; margin: 0 0 20px; color: var(--navy); letter-spacing: -0.01em; }
-.contact-desc { font-size: 16px; line-height: 1.7; color: rgba(10, 31, 68, 0.65); margin: 0 0 34px; max-width: 420px; }
+.contact-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; color: var(--green-light); margin-bottom: 14px; }
+.contact-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; margin: 0 0 20px; color: var(--text); letter-spacing: -0.01em; }
+.contact-desc { font-size: 16px; line-height: 1.7; color: var(--text-dim); margin: 0 0 34px; max-width: 420px; }
 
 .contact-items { display: flex; flex-direction: column; gap: 16px; }
 .contact-item { display: flex; align-items: center; gap: 14px; }
 .contact-icon {
   width: 42px; height: 42px;
   border-radius: 12px;
-  background: rgba(10, 31, 68, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   display: flex; align-items: center; justify-content: center;
-  color: var(--navy);
+  color: var(--green-light);
 }
-.contact-item span.label { font-size: 15px; font-weight: 500; }
+.contact-item span.label { font-size: 15px; font-weight: 500; color: var(--text); }
 
 .success-card {
-  background: var(--navy);
-  color: var(--cream);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text);
   border-radius: 22px;
   padding: 44px;
   display: flex;
@@ -568,36 +572,39 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
   justify-content: center;
   align-items: flex-start;
 }
-.success-icon { font-size: 34px; margin-bottom: 14px; }
+.success-icon { font-size: 34px; margin-bottom: 14px; color: var(--green-light); }
 .success-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; margin-bottom: 10px; }
-.success-desc { font-size: 15px; line-height: 1.6; color: rgba(245, 241, 232, 0.7); margin: 0; }
+.success-desc { font-size: 15px; line-height: 1.6; color: var(--text-dim); margin: 0; }
 
 .contact-form {
-  background: #fff;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 22px;
   padding: 36px;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  box-shadow: 0 20px 50px rgba(10, 31, 68, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
 }
 .contact-form.hidden { display: none; }
 
 .form-group { display: flex; flex-direction: column; }
-.form-label { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.form-label { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 
 .form-input, .form-textarea {
   width: 100%;
   box-sizing: border-box;
-  border: 1.5px solid rgba(10, 31, 68, 0.12);
+  border: 1.5px solid var(--card-border);
   border-radius: 12px;
   padding: 13px 16px;
   font-size: 14.5px;
   font-family: 'Inter', sans-serif;
   outline: none;
-  background: #FBFAF7;
+  background: rgba(245, 241, 232, 0.05);
+  color: var(--text);
 }
-.form-input:focus, .form-textarea:focus { border-color: var(--green); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-dimmer); }
+.form-input:focus, .form-textarea:focus { border-color: var(--green-light); }
 .form-textarea { resize: none; }
 
 .submit-btn {
@@ -614,11 +621,13 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
 .submit-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
 
 .footer {
+  position: relative;
+  z-index: 1;
   max-width: 1100px;
   margin: 64px auto 0;
   padding-top: 28px;
-  border-top: 1px solid rgba(10, 31, 68, 0.1);
+  border-top: 1px solid var(--card-border);
   text-align: center;
   font-size: 13.5px;
-  color: rgba(10, 31, 68, 0.5);
+  color: var(--text-dimmer);
 }
