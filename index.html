@@ -3,8 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="./assets/images/LogoS.png" />
   <title>Portfolio — Nguyễn Sỹ Sơn</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
 </head>
 <body>
 
@@ -35,7 +41,13 @@
         <a href="#contact" class="nav-cta">Contact</a>
       </div>
 
-      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <div class="nav-right">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Đổi giao diện sáng/tối" title="Đổi giao diện sáng/tối">
+          <span class="theme-icon">🌙</span>
+        </button>
+
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+      </div>
     </div>
 
     <div id="mobile-menu" class="mobile-menu">
@@ -52,6 +64,17 @@
 
   <!-- HOME / HERO -->
   <section id="home" class="hero">
+    <div class="profile-header">
+      <div class="profile-cover">
+        <img src="assets/images/banner.jpeg" alt="Ảnh bìa" class="profile-cover-img">
+      </div>
+      <div class="profile-avatar-wrap">
+        <img src="assets/images/avatar.jpg" alt="Nguyễn Sỹ Sơn" class="profile-avatar-img">
+      </div>
+      <div class="profile-name">Nguyễn Sỹ Sơn</div>
+      <div class="profile-role">DevOps / Cloud Engineer</div>
+    </div>
+
     <div class="hero-watermark">DEVOPS</div>
 
     <div class="hero-grid">
@@ -92,7 +115,7 @@
 
       <div class="hero-portrait-wrap">
         <div class="portrait-glow"></div>
-        <img src="avatar.jpg" alt="Nguyễn Sỹ Sơn" class="portrait-img">
+        <img src="assets/images/avatar.jpg" alt="Nguyễn Sỹ Sơn" class="portrait-img">
 
         <div class="float-tag tag-1"><span class="dot" style="background:#D9B26F;"></span>Java Backend</div>
         <div class="float-tag tag-2"><span class="dot" style="background:#3FA873;"></span>Spring Boot</div>
@@ -106,7 +129,7 @@
   <section id="about" class="section">
     <div class="section-inner about-grid reveal">
       <div>
-        <img src="about.jpg" alt="Ảnh minh hoạ / làm việc" class="about-img">
+        <img src="assets/images/about.jpg" alt="Ảnh minh hoạ / làm việc" class="about-img">
       </div>
       <div>
         <div class="eyebrow">VỀ TÔI</div>
@@ -147,49 +170,7 @@
         <h2 class="section-title">Công nghệ mình làm việc hằng ngày</h2>
       </div>
 
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-card-title">Backend</div>
-          <div class="skill-icons-grid">
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" loading="lazy"></div><span class="skill-icon-label">Java</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" loading="lazy"></div><span class="skill-icon-label">Spring Boot</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" alt="REST API" loading="lazy"></div><span class="skill-icon-label">REST API</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box skill-icon-custom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><circle cx="5" cy="17" r="2.4"/><circle cx="19" cy="17" r="2.4"/><line x1="12" y1="7.4" x2="5" y2="14.6"/><line x1="12" y1="7.4" x2="19" y2="14.6"/><line x1="7.4" y1="17" x2="16.6" y2="17"/></svg></div><span class="skill-icon-label">Microservices</span></div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-title">Cloud &amp; DevOps</div>
-          <div class="skill-icons-grid">
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" loading="lazy"></div><span class="skill-icon-label">AWS</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" loading="lazy"></div><span class="skill-icon-label">Docker</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes" loading="lazy"></div><span class="skill-icon-label">Kubernetes</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins" loading="lazy"></div><span class="skill-icon-label">Jenkins</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg" alt="GitHub Actions" loading="lazy"></div><span class="skill-icon-label">GitHub Actions</span></div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-title">Database</div>
-          <div class="skill-icons-grid">
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" loading="lazy"></div><span class="skill-icon-label">MySQL</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy"></div><span class="skill-icon-label">PostgreSQL</span></div>
-            <!-- <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" loading="lazy"></div><span class="skill-icon-label">MongoDB</span></div> -->
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" loading="lazy"></div><span class="skill-icon-label">Redis</span></div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-title">Tools</div>
-          <div class="skill-icons-grid">
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" loading="lazy"></div><span class="skill-icon-label">Git</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" loading="lazy"></div><span class="skill-icon-label">Linux</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg" alt="Prometheus" loading="lazy"></div><span class="skill-icon-label">Prometheus</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg" alt="Grafana" loading="lazy"></div><span class="skill-icon-label">Grafana</span></div>
-            <div class="skill-icon-tile"><div class="skill-icon-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" loading="lazy"></div><span class="skill-icon-label">Terraform</span></div>
-          </div>
-        </div>
-      </div>
+      <div class="skills-grid" id="skills-grid"></div>
     </div>
   </section>
 
@@ -203,23 +184,7 @@
 
       <div class="timeline">
         <div class="timeline-line"></div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-period">Sep 2025 — Hiện tại</div>
-          <div class="timeline-role">Cloud Engineer Intern</div>
-          <div class="timeline-company">AWS Study Group</div>
-          <p class="timeline-desc">Tham gia AWS Study Group Bootcamp, thực hành các dịch vụ AWS cốt lõi như EC2, S3, IAM, VPC và RDS thông qua các bài lab thực tế. Chương trình giúp tôi nâng cao kiến thức về Cloud Computing, triển khai hạ tầng, bảo mật và quản lý hệ thống trên nền tảng AWS.</p>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-period">May 2024 — Jan 2026</div>
-          <div class="timeline-role">Fullstack Developer</div>
-          <div class="timeline-company">VNEXT Software</div>
-          <p class="timeline-desc">Chịu trách nhiệm phát triển và nâng cấp các tính năng của ứng dụng web, sử dụng Vue.js (SPA) cho phía frontend và Laravel RESTful API cho phía backend. Thực hiện các chức năng xác thực người dùng (authentication), phân quyền theo vai trò (role-based access control), đồng thời tối ưu hóa các truy vấn cơ sở dữ liệu nhằm cải thiện hiệu năng và trải nghiệm tổng thể của hệ thống.</p>
-        </div>
-
+        <div id="timeline-items"></div>
       </div>
     </div>
   </section>
@@ -232,23 +197,7 @@
         <h2 class="section-title">Được công nhận bởi các tổ chức uy tín</h2>
       </div>
 
-      <div class="certs-grid">
-        <div class="cert-card">
-          <div class="cert-icon">AWS</div>
-          <div class="cert-name">AWS Certified Cloud Practitioner</div>
-          <div class="cert-meta">Amazon Web Services · 2026</div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon">AWS</div>
-          <div class="cert-name">AWS Application Networking Demonstrated</div>
-          <div class="cert-meta">Amazon Web Services · 2026</div>
-        </div>
-        <div class="cert-card">
-          <div class="cert-icon">AWS</div>
-          <div class="cert-name">AWS Serverless Demonstrated</div>
-          <div class="cert-meta">Amazon Web Services · 2026</div>
-        </div>
-      </div>
+      <div class="certs-grid" id="certs-grid"></div>
     </div>
   </section>
 
@@ -260,65 +209,7 @@
         <h2 class="section-title">Một vài dự án tiêu biểu</h2>
       </div>
 
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="img-placeholder project-image">Ảnh preview dự án</div>
-          <div class="project-body">
-            <div class="project-name">Cloud Migration Platform</div>
-            <p class="project-desc">Di chuyển hệ thống on-premise lên AWS với hạ tầng dạng code, giảm 35% chi phí vận hành.</p>
-            <div class="project-tech">
-              <span class="tech-tag">AWS</span>
-              <span class="tech-tag">Terraform</span>
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag">Kubernetes</span>
-            </div>
-            <a href="#projects" class="project-link">Xem chi tiết <span>→</span></a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="img-placeholder project-image">Ảnh preview dự án</div>
-          <div class="project-body">
-            <div class="project-name">CI/CD Pipeline Automation</div>
-            <p class="project-desc">Xây dựng pipeline tự động build – test – deploy đa môi trường cho 6 team phát triển.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Jenkins</span>
-              <span class="tech-tag">GitHub Actions</span>
-              <span class="tech-tag">Ansible</span>
-            </div>
-            <a href="#projects" class="project-link">Xem chi tiết <span>→</span></a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="img-placeholder project-image">Ảnh preview dự án</div>
-          <div class="project-body">
-            <div class="project-name">E-commerce Backend Microservices</div>
-            <p class="project-desc">Thiết kế hệ thống microservices xử lý đơn hàng thời gian thực với Kafka.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Spring Boot</span>
-              <span class="tech-tag">Kafka</span>
-              <span class="tech-tag">MySQL</span>
-            </div>
-            <a href="#projects" class="project-link">Xem chi tiết <span>→</span></a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="img-placeholder project-image">Ảnh preview dự án</div>
-          <div class="project-body">
-            <div class="project-name">Monitoring &amp; Observability Stack</div>
-            <p class="project-desc">Triển khai stack giám sát tập trung cho toàn bộ cluster production.</p>
-            <div class="project-tech">
-              <span class="tech-tag">Prometheus</span>
-              <span class="tech-tag">Grafana</span>
-              <span class="tech-tag">ELK</span>
-            </div>
-            <a href="#projects" class="project-link">Xem chi tiết <span>→</span></a>
-          </div>
-        </div>
-      </div>
+      <div class="projects-grid" id="projects-grid"></div>
     </div>
   </section>
 
@@ -330,36 +221,7 @@
         <h2 class="section-title">Bên ngoài công việc</h2>
       </div>
 
-      <div class="activities-grid">
-        <div class="activity-card">
-          <div class="img-placeholder activity-image">Ảnh hoạt động</div>
-          <div class="activity-body">
-            <div class="activity-title">Mentor CLB Lập trình</div>
-            <div class="activity-year">2023 — nay</div>
-          </div>
-        </div>
-        <div class="activity-card">
-          <div class="img-placeholder activity-image">Ảnh hoạt động</div>
-          <div class="activity-body">
-            <div class="activity-title">Diễn giả Tech Talk DevOps Community</div>
-            <div class="activity-year">2024</div>
-          </div>
-        </div>
-        <div class="activity-card">
-          <div class="img-placeholder activity-image">Ảnh hoạt động</div>
-          <div class="activity-body">
-            <div class="activity-title">Tình nguyện viên sự kiện công nghệ</div>
-            <div class="activity-year">2023</div>
-          </div>
-        </div>
-        <div class="activity-card">
-          <div class="img-placeholder activity-image">Ảnh hoạt động</div>
-          <div class="activity-body">
-            <div class="activity-title">Thành viên CLB Kỹ năng mềm</div>
-            <div class="activity-year">2021 — 2022</div>
-          </div>
-        </div>
-      </div>
+      <div class="activities-grid" id="activities-grid"></div>
     </div>
   </section>
 
@@ -421,6 +283,34 @@
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <!-- FLOATING SOCIAL ICONS -->
+  <div class="social-float">
+    <button id="scroll-top-btn" class="social-float-btn scroll-top-btn" aria-label="Cuộn lên đầu trang" title="Lên đầu trang">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="12" y1="19" x2="12" y2="5"/>
+        <polyline points="6 11 12 5 18 11"/>
+      </svg>
+    </button>
+    <a href="https://www.linkedin.com/in/sonns03/" target="_blank" rel="noopener noreferrer" class="social-float-btn social-float-linkedin" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+      </svg>
+    </a>
+    <a href="https://blog.sonns.cloud/" target="_blank" rel="noopener noreferrer" class="social-float-btn social-float-blog" aria-label="Blog cá nhân">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        <line x1="9" y1="7" x2="15" y2="7"/>
+        <line x1="9" y1="11" x2="15" y2="11"/>
+      </svg>
+    </a>
+  </div>
+
+  <script src="assets/js/data/skills-data.js"></script>
+  <script src="assets/js/data/experience-data.js"></script>
+  <script src="assets/js/data/certifications-data.js"></script>
+  <script src="assets/js/data/projects-data.js"></script>
+  <script src="assets/js/data/activities-data.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
