@@ -222,6 +222,11 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
 }
 .theme-toggle:hover { border-color: var(--green-light); transform: translateY(-2px); }
 
+.social-float-theme {
+  display: none;
+  background: var(--card-bg);
+}
+
 .mobile-menu {
   display: none;
   flex-direction: column;
@@ -265,7 +270,7 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
 /* ===== Hero ===== */
 .hero {
   position: relative;
-  padding: 150px 32px 90px;
+  padding: 100px 32px 90px;
   min-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -902,9 +907,14 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
   .logo { font-size: 18px; }
   .nav-right { gap: 8px; }
   .nav-toggle { width: 32px; height: 32px; font-size: 14px; border-radius: 8px; }
-  .theme-toggle { width: 30px; height: 30px; font-size: 13px; }
 
-  .hero { padding: 112px 20px 64px; }
+  .nav { transition: transform .3s ease; }
+  .nav.nav--hidden { transform: translateY(-100%); }
+
+  .theme-toggle { display: none; }
+  .social-float-theme { display: flex; }
+
+  .hero { padding: 62px 20px 64px; }
   .hero-actions { margin-bottom: 40px; }
   .hero-desc { font-size: 16px; }
 

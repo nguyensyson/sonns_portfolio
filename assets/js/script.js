@@ -1,24 +1,52 @@
 // ===== Theme toggle =====
 const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = themeToggle.querySelector('.theme-icon');
+const themeToggleFloat = document.getElementById('theme-toggle-float');
+const themeIcons = document.querySelectorAll('.theme-icon');
 
 function setTheme(theme) {
   if (theme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
-    themeIcon.textContent = '☀';
+    themeIcons.forEach((icon) => { icon.textContent = '☀'; });
   } else {
     document.documentElement.removeAttribute('data-theme');
-    themeIcon.textContent = '🌙';
+    themeIcons.forEach((icon) => { icon.textContent = '🌙'; });
   }
   localStorage.setItem('theme', theme);
 }
 
 setTheme(localStorage.getItem('theme') === 'light' ? 'light' : 'dark');
 
-themeToggle.addEventListener('click', () => {
+function toggleTheme() {
   const isLight = document.documentElement.getAttribute('data-theme') === 'light';
   setTheme(isLight ? 'dark' : 'light');
-});
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+themeToggleFloat?.addEventListener('click', toggleTheme);
+
+// ===== Mobile nav: hidden until scrolled past the cover photo =====
+const navEl = document.querySelector('.nav');
+const profileCover = document.querySelector('.profile-cover');
+const mobileNavQuery = window.matchMedia('(max-width: 600px)');
+
+if (navEl && profileCover) {
+  const coverObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (mobileNavQuery.matches) {
+          navEl.classList.toggle('nav--hidden', entry.isIntersecting);
+        }
+      });
+    },
+    { threshold: 0, rootMargin: '-50px 0px 0px 0px' }
+  );
+
+  coverObserver.observe(profileCover);
+
+  mobileNavQuery.addEventListener('change', (e) => {
+    if (!e.matches) navEl.classList.remove('nav--hidden');
+  });
+}
 
 // ===== Mobile nav toggle =====
 const navToggle = document.getElementById('nav-toggle');
