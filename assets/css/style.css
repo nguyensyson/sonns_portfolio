@@ -354,7 +354,7 @@ h1, h2, .heading-font { font-family: 'Space Grotesk', sans-serif; }
 @media (max-width: 600px) {
   .profile-header { margin-top: -62px; }
   .profile-cover { height: 200px; }
-  .profile-avatar-wrap { width: 104px; height: 104px; margin-top: -52px; }
+  .profile-avatar-wrap { width: 128px; height: 128px; margin-top: -64px; }
 }
 
 .hero-grid {
