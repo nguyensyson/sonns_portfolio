@@ -158,22 +158,47 @@ const revealTargets = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      observer.unobserve(entry.target);
+      const el = entry.target;
+      el.classList.add('in-view');
+      // Drop will-change once the transition settles so we're not paying
+      // for a standing compositor layer on sections that already revealed.
+      el.addEventListener('transitionend', () => el.classList.add('reveal-done'), { once: true });
+      observer.unobserve(el);
     }
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
 
 revealTargets.forEach((el) => observer.observe(el));
 
-// ===== Scroll to top =====
+// ===== Scroll to top + scroll-driven perf class =====
+// Batched through rAF and marked passive so Safari doesn't block the
+// compositor thread on every scroll tick.
 const scrollTopBtn = document.getElementById('scroll-top-btn');
 
 function toggleScrollTopBtn() {
   scrollTopBtn.classList.toggle('visible', window.scrollY > 480);
 }
 
-window.addEventListener('scroll', toggleScrollTopBtn);
+let scrollRaf = null;
+let scrollEndTimer = null;
+
+function onScroll() {
+  if (!document.body.classList.contains('is-scrolling')) {
+    document.body.classList.add('is-scrolling');
+  }
+  clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(() => {
+    document.body.classList.remove('is-scrolling');
+  }, 160);
+
+  if (scrollRaf) return;
+  scrollRaf = requestAnimationFrame(() => {
+    toggleScrollTopBtn();
+    scrollRaf = null;
+  });
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
 toggleScrollTopBtn();
 
 scrollTopBtn.addEventListener('click', () => {
